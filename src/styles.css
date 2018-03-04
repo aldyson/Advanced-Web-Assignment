@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Headers;
+    src:url('assets/fonts/Work_Sans/WorkSans-Regular.ttf')
+}
+@font-face {
+    font-family: Body;
+    src:url('assets/fonts/Raleway/Raleway-Regular.ttf')
+}
+body{
+    font-family: Body, sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: Headers, sans-serif;
+}
+.navbar-default{
+    border-color: #A3CB38;
+}
+.btn-primary, .btn-primary:focus, .btn-primary:active{
+    min-width: 100px;
+    background-color: #A3CB38 !important;
+    border-color: #A3CB38 !important;
+}
+.text-center{
+    text-align: center;
+}
+.form-control{
+    font-size: 16px;
+    padding: 18px 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    box-shadow: none !important;
+    background-color:rgba(0,0,0,0) !important;
+}
+.form-control:focus{
+    border-color: #A3CB38;
+}
+.panel-default{
+    border-color: #A3CB38;
+}
+.panel-default>.panel-heading{
+    background-color: #A3CB38;
+}
+.panel-title>.small, .panel-title>.small>a, .panel-title>a, .panel-title>small, .panel-title>small>a {
+    text-decoration: none;
+    display: block;
+}

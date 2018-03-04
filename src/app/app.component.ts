@@ -12,5 +12,4 @@ export class AppComponent {
     { name: 'Something else', price: '£20'},
     { name: 'The last thing', price: '£45'},
   ];
-  name = '';
 }

@@ -1,3 +1,7 @@
+.navbar-default{
+    border-bottom: 5px solid #dfe4ea;
+    background-color: #A3CB38;
+}
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: transparent;
 }

@@ -1,3 +1,16 @@
-<p>
-  {{item.name}} costs {{item.price}}
-</p>
+<!--<p>-->
+  <!--{{item.name}} costs {{item.price}}-->
+<!--</p>-->
+<h3>Items Currently Listed</h3>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" *ngFor="let sampleItem of sampleItems; let i = index">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{sampleItem.name}}</a>
+            </h4>
+        </div>
+        <div id="{{i}}" class="panel-collapse collapse" [ngClass]="{'in': i == 0}">
+            <div class="panel-body">{{sampleItem.name}} costs {{sampleItem.price}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.navbar-default {
+    background-color: #dfe4ea;
+    border-width: 5px 0 0;
+}
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:active,
+.navbar-default .navbar-nav>li>a.active,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #A3CB38;
+    transition: all 0.1s;
+}
+.navbar-default .navbar-nav>li>a:focus small,
+.navbar-default .navbar-nav>li>a:hover small,
+.navbar-default .navbar-nav>li>a.active small,
+.navbar-default .navbar-nav>li>a:active small{
+    opacity: 0;
+    transition: all 0.3s;
+}
+.navbar-default .navbar-nav>li>a:focus svg,
+.navbar-default .navbar-nav>li>a:hover svg,
+.navbar-default .navbar-nav>li>a.active svg,
+.navbar-default .navbar-nav>li>a:active svg{
+    font-size: 3em;
+    margin-bottom: -15px;
+    transition: all 0.3s;
+}
+.navbar-nav {
+    margin: 0;
+    width: 100%;
+}
+.nav li {
+    display: inline-block;
+}
+.footer-icon {
+    width: 19%;
+    text-align: center;
+}
+a {
+    padding: 8px 5px 4px 5px !important;
+}

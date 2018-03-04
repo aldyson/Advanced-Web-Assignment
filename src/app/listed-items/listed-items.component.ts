@@ -9,6 +9,13 @@ export class ListedItemsComponent implements OnInit {
   @Input() item;
   @Input() index: number;
 
+  sampleItems = [
+    { name: 'A thing', price: '£60'},
+    { name: 'Another thing', price: '£35'},
+    { name: 'Something else', price: '£20'},
+    { name: 'The last thing', price: '£45'},
+  ];
+
   constructor() { }
 
   ngOnInit() {

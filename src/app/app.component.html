@@ -1,16 +1,14 @@
 <app-header></app-header>
-<div class="container">
+<div class="container page-body">
     <div class="row">
         <div class="col-xs-12">
-            <h1>Welcome to the App</h1>
-            <hr>
-            <input type="text" [(ngModel)]="name">
-            <p>{{name}}</p>
-            <app-listed-items
-                    *ngFor="let item of sampleItems; let i = index"
-                    [item]="item"
-                    [index]="i">
-            </app-listed-items>
+            <router-outlet></router-outlet>
+            <!--<app-listed-items-->
+                    <!--*ngFor="let item of sampleItems; let i = index"-->
+                    <!--[item]="item"-->
+                    <!--[index]="i">-->
+            <!--</app-listed-items>-->
         </div>
     </div>
 </div>
+<app-footer></app-footer>
