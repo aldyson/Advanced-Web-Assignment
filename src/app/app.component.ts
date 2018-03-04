@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  sampleItems = [
+    { name: 'A thing', price: '£60'},
+    { name: 'Another thing', price: '£35'},
+    { name: 'Something else', price: '£20'},
+    { name: 'The last thing', price: '£45'},
+  ];
+  name = '';
 }
