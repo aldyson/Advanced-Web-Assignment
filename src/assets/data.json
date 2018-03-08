@@ -1,0 +1,59 @@
+{
+  "dataset1" : {
+    "glossary": {
+      "title": "example glossary",
+      "GlossDiv": {
+        "title": "S",
+        "GlossList": {
+          "GlossEntry": {
+            "ID": "SGML",
+            "SortAs": "SGML",
+            "GlossTerm": "Standard Generalized Markup Language",
+            "Acronym": "SGML",
+            "Abbrev": "ISO 8879:1986",
+            "GlossDef": {
+              "para": "A meta-markup language, used to create markup languages such as DocBook.",
+              "GlossSeeAlso": [
+                "GML",
+                "XML"
+              ]
+            },
+            "GlossSee": "markup"
+          }
+        }
+      }
+    }
+  },
+  "markers": [
+    {
+      "name": "HP Pavilion Laptop",
+      "lat" : 42.825588,
+      "lng" : -71.018029
+    },
+    {
+      "name": "iPhone 7 screen protector and case",
+      "lat" : 42.868164,
+      "lng" : -70.889071
+    },
+    {
+      "name": "Black laptop bag",
+      "lat" : 42.858279,
+      "lng" : -70.930498
+    }
+  ],
+  "dataset3" : {
+  "glossary": {
+    "title": "example glossary",
+    "GlossDiv": {
+      "title": "S",
+      "GlossList": {
+        "GlossEntry": {
+          "ID": "SGML",
+          "SortAs": "SGML",
+          "GlossSee": "markup"
+          }
+        }
+      }
+    }
+  }
+}

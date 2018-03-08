@@ -1,2 +1,47 @@
 <h3>Search for Items</h3>
+<agm-map [latitude]="lat"
+         [longitude]="lng"
+         [zoom]="12"
+         [zoomControl]="true"
+         (mapClick)="mapClicked($event)">
+    <agm-marker *ngFor="let m of markers; let i = index"
+                [latitude]="m.lat"
+                [longitude]="m.lng"
+                (markerClick)="markerClicked(m, i)">
+        <agm-info-window>
+            <strong>{{m.name}}</strong>
+        </agm-info-window>
+    </agm-marker>
+</agm-map>
 <hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Add New Marker
+                </div>
+            </div>
+            <div class="panel-body">
+                <form (submit)="addMarker()">
+                    <div class="form-group">
+                        <label for="markerName">Location Name</label>
+                        <input class="form-control" type="text" id="markerName" [(ngModel)]="markerName" name="markerName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="markerLat">Latitude</label>
+                        <input class="form-control" type="text" id="markerLat" [(ngModel)]="markerLat" name="markerLat">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="markerLng">Longitude</label>
+                        <input class="form-control" type="text" id="markerLng" [(ngModel)]="markerLng" name="markerLng">
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
