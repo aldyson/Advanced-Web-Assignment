@@ -1,3 +1,14 @@
 agm-map{
     height: 400px;
 }
+.modal__modal-link{
+    display: block;
+}
+.modal__modal-header{
+    display: inline-block;
+}
+.modal__modal-section-header{
+    margin-bottom: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #A3CB38;
+}

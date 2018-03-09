@@ -1,3 +1,9 @@
 .page-body{
     margin-bottom: 80px;
 }
+.modal-header{
+    border-bottom: 1px solid #A3CB28;
+}
+.modal-footer{
+    border-top: 1px solid #A3CB28;
+}

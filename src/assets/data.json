@@ -1,44 +1,51 @@
 {
-  "dataset1" : {
-    "glossary": {
-      "title": "example glossary",
-      "GlossDiv": {
-        "title": "S",
-        "GlossList": {
-          "GlossEntry": {
-            "ID": "SGML",
-            "SortAs": "SGML",
-            "GlossTerm": "Standard Generalized Markup Language",
-            "Acronym": "SGML",
-            "Abbrev": "ISO 8879:1986",
-            "GlossDef": {
-              "para": "A meta-markup language, used to create markup languages such as DocBook.",
-              "GlossSeeAlso": [
-                "GML",
-                "XML"
-              ]
-            },
-            "GlossSee": "markup"
-          }
-        }
-      }
-    }
+  "imagePaths" : {
+    "computer": "./assets/laptop-marker.png",
+    "smartphone": "./assets/laptop.png",
+    "tablet": "./assets/laptop.png",
+    "tv": "./assets/laptop.png",
+    "accessory": "./assets/laptop.png"
   },
   "markers": [
     {
       "name": "HP Pavilion Laptop",
-      "lat" : 53.639726,
-      "lng" : -1.779570
+      "type": "computer",
+      "description": "2 year old laptop which has been kept in very good condition. Only has a few minor scratches on the lid but everything works perfectly well. 6GB RAM, 258GB HDD, 15 inch screen - £200",
+      "price": 200,
+      "lat": 53.639726,
+      "lng": -1.779570,
+      "contact_number": "01484 422288",
+      "email_address": "someone@example.com"
     },
     {
       "name": "iPhone 7 screen protector and case",
-      "lat" : 53.642754,
-      "lng" : -1.778218
+      "type": "accessory",
+      "description": "Screen protector and transparent case for iPhone 7. Brand new and in original packaging.",
+      "price": 10,
+      "lat": 53.642754,
+      "lng": -1.778218,
+      "contact_number": "01484 422288",
+      "email_address": "someone@example.com"
     },
     {
       "name": "Black laptop bag",
-      "lat" : 53.648706,
-      "lng" : -1.781351
+      "type": "accessory",
+      "description": "Laptop carrying case (black) for 15 inch laptops with 2 large pockets and space for other things. Starting to tear on the back but still usable.",
+      "price": 5,
+      "lat": 53.648706,
+      "lng": -1.781351,
+      "contact_number": "01484 422288",
+      "email_address": "someone@example.com"
+    },
+    {
+      "name": "Samsung Galaxy S6 in midnight blue",
+      "type": "smartphone",
+      "description": "Galaxy S6 smartphone (no SIM or SD card). Has a small crack at the top corner of the screen but it isn't noticeable and still works well. Selling because I've upgraded to a better phone and don't need this one any more.",
+      "price": 90,
+      "lat": 53.645236,
+      "lng": -1.791965,
+      "contact_number": "01484 422288",
+      "email_address": "someone@example.com"
     }
   ],
   "dataset3" : {

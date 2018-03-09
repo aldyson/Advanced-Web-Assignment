@@ -3,20 +3,59 @@
          [longitude]="lng"
          [zoom]="12"
          [zoomControl]="true"
-         [mapTypeId]="'hybrid'"
+         [panControl]="true"
+         [gestureHandling]="'greedy'"
+         [clickableIcons]="false"
+         [mapTypeId]="'roadmap'"
          (mapClick)="mapClicked($event)">
     <agm-marker *ngFor="let m of markers; let i = index"
                 [latitude]="m.lat"
                 [longitude]="m.lng"
                 (markerClick)="markerClicked(m, i)"
-                [iconUrl]="{url: './assets/laptop.png'}"
-    >
+                [iconUrl]="{url: getMarkerUrl(m)}">
         <agm-info-window [isOpen]="i == currentMarker">
             <strong>{{m.name}}</strong>
+            <p>{{m.description}}</p>
+            <h4>£{{m.price}}</h4>
+            <a (click)="viewProductDetails(m)" data-toggle="modal" data-target="#productDetails">More Details</a>
         </agm-info-window>
     </agm-marker>
 </agm-map>
+
 <hr>
+
+<div class="modal fade" id="productDetails" role="dialog" *ngIf="productInView">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><strong>£{{productInView.price}} - {{productInView.name}}</strong></h4>
+            </div>
+            <div class="modal-body">
+                <p>{{productInView.description}}</p>
+                <hr>
+                <h4 class="modal__modal-section-header">Contact Details</h4>
+                <a href="{{contactNo}}" class="modal__modal-link">
+                    <i class="fas fa-phone"></i>&nbsp;
+                    <h4 class="modal__modal-header">{{productInView.contact_number}}</h4>
+                </a>
+                <a href="{{mailTo}}" class="modal__modal-link">
+                    <i class="fas fa-envelope"></i>&nbsp;
+                    <h5 class="modal__modal-header">{{productInView.email_address}}</h5>
+                </a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--TODO: Move this onto another page.-->
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">

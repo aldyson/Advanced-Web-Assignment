@@ -11,7 +11,11 @@ export class SearchComponent implements OnInit {
   lat: number = parseInt(localStorage.getItem('lat'));
   lng: number = parseInt(localStorage.getItem('lng'));
   markers;
+  imagePaths;
   currentMarker: number;
+  productInView;
+  mailTo;
+  contactNo;
 
   markerName: string;
   markerLat: string;
@@ -22,6 +26,7 @@ export class SearchComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
+    this.getImagePaths();
     this.getMarkers();
   }
 
@@ -30,6 +35,17 @@ export class SearchComponent implements OnInit {
         .subscribe(response => {
           this.markers = response.json().markers;
         });
+  }
+
+  getImagePaths() {
+    this.http.get(this.url + '/assets/data.json')
+        .subscribe(response => {
+          this.imagePaths = response.json().imagePaths;
+        });
+  }
+
+  getMarkerUrl(m) {
+      return this.imagePaths[m.type];
   }
 
   markerClicked(marker: Marker, index: number) {
@@ -49,13 +65,19 @@ export class SearchComponent implements OnInit {
   addMarker() {
     console.log("Adding Marker");
 
-    var newMarker = {
+    let newMarker = {
       name: this.markerName,
       lat: this.markerLat,
       lng: this.markerLng
     };
 
     this.markers.push(newMarker);
+  }
+
+  viewProductDetails(m) {
+    this.productInView = m;
+    this.mailTo = "mailto:" + m.email_address;
+    this.contactNo = "tel:" + m.contact_number;
   }
 
 }
