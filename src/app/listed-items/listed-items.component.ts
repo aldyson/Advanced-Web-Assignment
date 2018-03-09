@@ -19,6 +19,24 @@ export class ListedItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.getLocation();
   }
 
+  //TODO: Move these three methods to run as soon as the user accesses the application.
+  getLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.success, this.error);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  };
+
+  success(position) {
+    localStorage.setItem('lat', position.coords.latitude);
+    localStorage.setItem('lng', position.coords.longitude);
+  }
+
+  error(err) {
+    console.log(`ERROR(${err.code}): ${err.message}`);
+  }
 }

@@ -16,23 +16,23 @@
     height: 4px;
     transition: all 0.2s;
 }
-.navbar-toggle.collapsed .top-bar {
+.navbar-toggle.collapsed .navbar-toggle__top-bar {
     transform: rotate(0);
 }
-.navbar-toggle.collapsed .middle-bar {
+.navbar-toggle.collapsed .navbar-toggle__middle-bar {
     opacity: 1;
 }
-.navbar-toggle.collapsed .bottom-bar {
+.navbar-toggle.collapsed .navbar-toggle__bottom-bar {
     transform: rotate(0);
 }
-.top-bar {
+.navbar-toggle__top-bar {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
 }
-.middle-bar {
+.navbar-toggle__middle-bar {
     opacity: 0;
 }
-.bottom-bar {
+.navbar-toggle__bottom-bar {
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
 }

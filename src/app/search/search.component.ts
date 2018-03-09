@@ -8,9 +8,10 @@ import { Constants } from "../shared/constants";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  lat: number = 42.858217;
-  lng: number = -70.929990;
+  lat: number = parseInt(localStorage.getItem('lat'));
+  lng: number = parseInt(localStorage.getItem('lng'));
   markers;
+  currentMarker: number;
 
   markerName: string;
   markerLat: string;
@@ -32,7 +33,7 @@ export class SearchComponent implements OnInit {
   }
 
   markerClicked(marker: Marker, index: number) {
-    console.log("Clicked marker: " + marker.name + ' at index ' + index);
+    this.currentMarker = index;
   }
 
   mapClicked($event: any) {
@@ -52,7 +53,7 @@ export class SearchComponent implements OnInit {
       name: this.markerName,
       lat: this.markerLat,
       lng: this.markerLng
-    }
+    };
 
     this.markers.push(newMarker);
   }
