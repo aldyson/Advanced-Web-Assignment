@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonService } from '../shared/json.service'
+import { Http } from '@angular/http';
+import {Constants} from "../shared/constants";
 
 @Component({
   selector: 'app-sold-items',
@@ -8,14 +10,20 @@ import { JsonService } from '../shared/json.service'
   providers: [JsonService]
 })
 export class SoldItemsComponent implements OnInit {
+  data;
 
-  constructor(private jsonService: JsonService) { }
+  url = Constants.URL;
+
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
 
   getJSON() {
-    this.jsonService.getJsonData()
+    this.http.get(this.url + '/assets/data.json')
+        .subscribe(response => {
+          this.data = response.json().imagePaths;
+        });
   }
 
 }

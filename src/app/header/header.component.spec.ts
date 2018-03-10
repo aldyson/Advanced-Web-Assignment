@@ -22,4 +22,12 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it ('should display navigation menu if user is signed in', () => {
+    sessionStorage.setItem('email', 'test@email.com');
+    component.isSignedIn();
+    fixture.detectChanges();
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.navbar-toggle').elementToBeClickable);
+  });
 });

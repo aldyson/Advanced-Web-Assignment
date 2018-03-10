@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockBackend } from '@angular/http/testing';
+import { Http } from '@angular/http';
 import { SoldItemsComponent } from './sold-items.component';
 
 describe('SoldItemsComponent', () => {
@@ -8,7 +9,10 @@ describe('SoldItemsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SoldItemsComponent ]
+      declarations: [ SoldItemsComponent ],
+      providers: [
+        {provide: Http, deps: [MockBackend]}
+      ],
     })
     .compileComponents();
   }));
