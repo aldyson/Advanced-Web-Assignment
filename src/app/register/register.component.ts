@@ -40,13 +40,15 @@ export class RegisterComponent implements OnInit {
   }
 
   validate(value) {
-    for (let i=0;i<this.accounts.length;i++) {
-      if (value.email == this.accounts[i].email) {
-        return this.errors.email = 'This email address has already been taken';
-      }
-    }
+    let account = this.accounts.find( function( ele ) {
+      return ele.email === value.email;
+    } );
 
-    this.createUser(value);
+    if (account) {
+      this.errors.email = "An account already exists with this email address";
+    } else {
+      this.createUser(value);
+    }
   }
 
   createUser(value) {

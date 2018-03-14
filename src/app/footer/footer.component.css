@@ -24,6 +24,9 @@
     margin-bottom: -15px;
     transition: all 0.3s;
 }
+.thisIsActive{
+    color: blue !important;
+}
 .navbar-nav {
     margin: 0;
     width: 100%;

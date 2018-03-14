@@ -16,16 +16,17 @@ import { SoldItemsComponent } from './sold-items/sold-items.component';
 import { SearchComponent } from './search/search.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import {AuthGuard} from "./auth/auth-guard.service";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'listed-items', component: ListedItemsComponent },
-  { path: 'sold-items', component: SoldItemsComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'alerts', component: AlertsComponent },
-  { path: 'favourites', component: FavouritesComponent },
+  { path: 'listed-items', component: ListedItemsComponent, canActivate: [AuthGuard] },
+  { path: 'sold-items', component: SoldItemsComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard] },
+  { path: 'favourites', component: FavouritesComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyBs0YDk89cCTI27610G9O0CGtFx7oMSyx0'
     })
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

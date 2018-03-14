@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
-    console.log(this.accounts);
   }
 
   getUsers() {
@@ -41,16 +40,18 @@ export class LoginComponent implements OnInit {
   }
 
   validate(value) {
-    for (let i=0;i<this.accounts.length;i++) {
-      if (value.email == this.accounts[i].email) {
-        if (value.password !== this.accounts[i].email) {
-          return this.errors.password = 'Incorrect Password';
-        } else {
-          this.signIn(this.accounts[i]);
-        }
-      } else {
-        return this.errors.email = 'No account exists with this email address';
-      }
+    let account = this.accounts.find( function( ele ) {
+      return ele.email === value.email;
+    } );
+
+    if (!account) {
+      this.errors.email = "Incorrect email address";
+      this.errors.password = '';
+    } else if (account.password !== value.password) {
+      this.errors.email = '';
+      this.errors.password = "Incorrect password";
+    } else {
+      this.signIn(account)
     }
   }
 
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('email', account.email);
     sessionStorage.setItem('firstName', account.firstName);
     sessionStorage.setItem('lastName', account.lastName);
+    sessionStorage.setItem('signedIn', 'true');
 
     this.router.navigate(['/listed-items']);
   }
