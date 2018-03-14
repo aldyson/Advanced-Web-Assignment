@@ -49,19 +49,34 @@
       "email_address": "someone@example.com"
     }
   ],
-  "dataset3" : {
-  "glossary": {
-    "title": "example glossary",
-    "GlossDiv": {
-      "title": "S",
-      "GlossList": {
-        "GlossEntry": {
-          "ID": "SGML",
-          "SortAs": "SGML",
-          "GlossSee": "markup"
-          }
-        }
-      }
+  "accounts" : [
+    {
+      "id": "64pypckfp0pw5kiqgy7hhjwqqf",
+      "email": "user1@email.com",
+      "password": "password",
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": "6cql1embuxcd7ur64udpyt1fe6",
+      "email": "user2@email.com",
+      "password": "password",
+      "firstName": "John",
+      "lastName": "Smith"
+    },
+    {
+      "id": "2euuis09gz3uw5f7io1r5mfwuk",
+      "email": "user3@email.com",
+      "password": "password",
+      "firstName": "Will",
+      "lastName": "Barrow"
+    },
+    {
+      "id": "4v8wj3o4jl9i8ccloc5lnni10c",
+      "email": "user4@email.com",
+      "password": "password",
+      "firstName": "Claire",
+      "lastName": "Jones"
     }
-  }
+  ]
 }

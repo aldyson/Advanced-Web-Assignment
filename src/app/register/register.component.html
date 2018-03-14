@@ -1,24 +1,25 @@
 <h3>Create an Account</h3>
 <hr>
-<form>
+<form (ngSubmit)="onRegister(f)" #f="ngForm">
   <div class="form-group">
     <label for="firstName">First Name(s)</label>
-    <input type="text" id="firstName" class="form-control" placeholder="Will">
+    <input type="text" id="firstName" class="form-control" placeholder="Will" name="firstName" ngModel required>
   </div>
   <div class="form-group">
     <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" class="form-control" placeholder="Barrow">
+    <input type="text" id="lastName" class="form-control" placeholder="Barrow" name="lastName" ngModel required>
   </div>
   <div class="form-group">
     <label for="email">Email&nbsp;</label>
-    <input type="email" id="email" class="form-control" placeholder="example@email.com">
+    <input type="email" id="email" class="form-control" placeholder="example@email.com" name="email" ngModel required email>
+    <small class="form-group--input__error" *ngIf="errors.email">{{errors.email}}</small>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" id="password" class="form-control">
+    <input type="password" id="password" class="form-control" name="password" ngModel required>
   </div>
   <div class="text-center">
-    <button class="btn btn-primary" type="submit">Create Account&nbsp;<i class="fas fa-plus"></i></button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Create Account&nbsp;<i class="fas fa-plus"></i></button>
   </div>
 </form>
 <hr>
