@@ -30,4 +30,12 @@ describe('HeaderComponent', () => {
     let compiled = fixture.nativeElement;
     expect(compiled.querySelector('.navbar-toggle').elementToBeClickable);
   });
+
+  // it ('should not display navigation menu if user is not signed in', () => {
+  //   sessionStorage.removeItem('email');
+  //   component.isSignedIn();
+  //   fixture.detectChanges();
+  //   let compiled = fixture.nativeElement;
+  //   expect(compiled.querySelector('.navbar-header').firstChild.nodeName);
+  // });
 });

@@ -8,8 +8,8 @@ import { Constants } from "../shared/constants";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  lat: number = parseInt(localStorage.getItem('lat'));
-  lng: number = parseInt(localStorage.getItem('lng'));
+  lat = parseFloat(localStorage.getItem('lat'));
+  lng = parseFloat(localStorage.getItem('lng'));
   markers;
   imagePaths;
   currentMarker: number;
@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit {
   }
 
   getMarkerUrl(m) {
-      return this.imagePaths[m.type];
+    return this.imagePaths[m.type];
   }
 
   markerClicked(marker: Marker, index: number) {
@@ -53,13 +53,13 @@ export class SearchComponent implements OnInit {
   }
 
   mapClicked($event: any) {
-    var newMarker = {
-      name: 'Untitled',
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-    };
-
-    this.markers.push(newMarker);
+    // var newMarker = {
+    //   name: 'Untitled',
+    //   lat: $event.coords.lat,
+    //   lng: $event.coords.lng,
+    // };
+    //
+    // this.markers.push(newMarker);
   }
 
   addMarker() {

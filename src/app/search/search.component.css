@@ -12,3 +12,6 @@ agm-map{
     padding-bottom: 4px;
     border-bottom: 2px solid #A3CB38;
 }
+.agm-info-window--user-marker-text{
+    margin: 0;
+}

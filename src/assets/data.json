@@ -1,10 +1,11 @@
 {
   "imagePaths" : {
     "computer": "./assets/laptop-marker.png",
-    "smartphone": "./assets/laptop.png",
-    "tablet": "./assets/laptop.png",
-    "tv": "./assets/laptop.png",
-    "accessory": "./assets/laptop.png"
+    "smartphone": "./assets/smartphone-marker.png",
+    "tablet": "./assets/tablet-marker.png",
+    "tv": "./assets/tv-marker.png",
+    "accessory": "./assets/accessory-marker.png",
+    "other": "./assets/other-marker.png"
   },
   "markers": [
     {
