@@ -1,4 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Http} from "@angular/http";
+import {Constants} from "../shared/constants";
 
 @Component({
   selector: 'app-listed-items',
@@ -9,34 +11,33 @@ export class ListedItemsComponent implements OnInit {
   @Input() item;
   @Input() index: number;
 
-  sampleItems = [
-    { name: 'A thing', price: '£60'},
-    { name: 'Another thing', price: '£35'},
-    { name: 'Something else', price: '£20'},
-    { name: 'The last thing', price: '£45'},
-  ];
+  items = JSON.parse(localStorage.getItem('markers'));
+  userItems = [];
+  url = Constants.URL;
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
-    this.getLocation();
+    this.getItems();
   }
 
-  //TODO: Move these three methods to run as soon as the user accesses the application.
-  getLocation(){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.success, this.error);
+  getItems() {
+    if (localStorage.getItem('markers')) {
+      this.items = JSON.parse(localStorage.getItem('markers'));
     } else {
-      console.log("Geolocation is not supported by this browser.");
+      this.http.get(this.url + '/assets/data.json')
+          .subscribe(response => {
+            this.items = response.json().markers;
+          });
     }
-  };
-
-  success(position) {
-    localStorage.setItem('lat', position.coords.latitude);
-    localStorage.setItem('lng', position.coords.longitude);
+    this.getUserItems(this.items);
   }
 
-  error(err) {
-    console.log(`ERROR(${err.code}): ${err.message}`);
+  getUserItems(items) {
+    for (let i=0;i<items.length;i++) {
+      if (items[i]['seller_id'] == sessionStorage.getItem('id')) {
+        this.userItems.push(items[i]);
+      }
+    }
   }
 }

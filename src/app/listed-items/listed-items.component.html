@@ -4,14 +4,14 @@
 <h3>Items Currently Listed</h3>
 <hr>
 <div class="panel-group" id="accordion">
-    <div class="panel panel-default" *ngFor="let sampleItem of sampleItems; let i = index">
+    <div class="panel panel-default" *ngFor="let item of userItems; let i = index">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{sampleItem.name}}</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{item.name}}</a>
             </h4>
         </div>
         <div id="{{i}}" class="panel-collapse collapse" [ngClass]="{'in': i == 0}">
-            <div class="panel-body">{{sampleItem.name}} costs {{sampleItem.price}}</div>
+            <div class="panel-body">{{item.name}} costs {{item.price}}</div>
         </div>
     </div>
 </div>

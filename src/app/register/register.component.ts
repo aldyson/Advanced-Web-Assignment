@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
             this.accounts = response.json().accounts;
           });
     }
-
   }
 
   onRegister(form: NgForm) {

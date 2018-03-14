@@ -16,7 +16,8 @@
       "lat": 53.639726,
       "lng": -1.779570,
       "contact_number": "01484 422288",
-      "email_address": "someone@example.com"
+      "email_address": "user1@email.com",
+      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
     },
     {
       "name": "iPhone 7 screen protector and case",
@@ -26,7 +27,8 @@
       "lat": 53.642754,
       "lng": -1.778218,
       "contact_number": "01484 422288",
-      "email_address": "someone@example.com"
+      "email_address": "user1@email.com",
+      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
     },
     {
       "name": "Black laptop bag",
@@ -36,7 +38,8 @@
       "lat": 53.648706,
       "lng": -1.781351,
       "contact_number": "01484 422288",
-      "email_address": "someone@example.com"
+      "email_address": "user1@email.com",
+      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
     },
     {
       "name": "Samsung Galaxy S6 in midnight blue",
@@ -46,7 +49,8 @@
       "lat": 53.645236,
       "lng": -1.791965,
       "contact_number": "01484 422288",
-      "email_address": "someone@example.com"
+      "email_address": "user1@email.com",
+      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
     }
   ],
   "accounts" : [
