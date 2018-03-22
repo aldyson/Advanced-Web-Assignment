@@ -19,7 +19,14 @@ export class RegisterComponent implements OnInit {
   constructor(private http: Http, private router: Router) { }
 
   ngOnInit() {
+    this.isAuthenticated();
     this.getUsers();
+  }
+
+  isAuthenticated() {
+    if (sessionStorage.getItem('signedIn') !== null) {
+      this.router.navigate(['/listed-items']);
+    }
   }
 
   getUsers() {

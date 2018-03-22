@@ -2,8 +2,53 @@
   <!--{{item.name}} costs {{item.price}}-->
 <!--</p>-->
 <h3>Items Currently Listed</h3>
-<hr>
-<div class="panel-group" id="accordion">
+<div *ngIf="!listingItem">
+    <hr>
+    <button class="btn btn-primary" (click)="listingItem = true">List an Item&nbsp;<i class="fas fa-plus"></i></button>
+    <hr>
+</div>
+<div *ngIf="listingItem">
+    <hr>
+    <form (ngSubmit)="onListItem(f)" #f="ngForm">
+
+        <div class="form-group">
+            <label for="item-name">What are you selling?</label>
+            <input class="form-control" type="text" id="item-name" ngModel name="item-name" placeholder="An Item" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Write a description about this</label>
+            <input class="form-control" type="text" id="description" ngModel name="description" placeholder="Any features or problems with the item" required>
+        </div>
+        <div class="form-group">
+            <label for="price">How much are you selling it for?</label>
+            <div class="input-group">
+                <span class="input-group-addon">£</span>
+                <input type="number" value="10" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="price" required ngModel name="price">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address-line-1">Address Line 1</label>
+            <input class="form-control" type="text" id="address-line-1" ngModel name="address-line-1">
+        </div>
+        <div class="form-group">
+            <label for="address-line-2">Address Line 2</label>
+            <input class="form-control" type="text" id="address-line-2" ngModel name="address-line-2">
+        </div>
+        <div class="form-group">
+            <label for="town-city">Town / City</label>
+            <input class="form-control" type="text" id="town-city" ngModel name="town-city">
+        </div>
+        <div class="form-group">
+            <label for="post-code">Post Code</label>
+            <input class="form-control" type="text" id="post-code" ngModel name="post-code">
+        </div>
+
+        <button class="btn btn-primary" type="submit">List Item</button>
+        <button class="btn btn-danger" (click)="listingItem = false;">Cancel</button>
+    </form>
+</div>
+
+<div class="panel-group" id="accordion" *ngIf="!listingItem">
     <div class="panel panel-default" *ngFor="let item of userItems; let i = index">
         <div class="panel-heading">
             <h4 class="panel-title">

@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http} from "@angular/http";
 import {Constants} from "../shared/constants";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-listed-items',
@@ -13,6 +14,7 @@ export class ListedItemsComponent implements OnInit {
 
   items = JSON.parse(localStorage.getItem('markers'));
   userItems = [];
+  listingItem = false;
   url = Constants.URL;
 
   constructor(private http: Http) { }
@@ -39,5 +41,11 @@ export class ListedItemsComponent implements OnInit {
         this.userItems.push(items[i]);
       }
     }
+  }
+
+  onListItem (form: NgForm) {
+    const value = form.value;
+
+    console.log(value);
   }
 }
