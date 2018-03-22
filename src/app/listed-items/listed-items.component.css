@@ -12,3 +12,6 @@ span.gbp::before {
 span.gbp input {
     width: 280px !important;
 }
+.form__post-item-button{
+    margin-bottom: 15px;
+}

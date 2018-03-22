@@ -13,6 +13,10 @@ body{
 h1,h2,h3,h4,h5,h6{
     font-family: Headers, sans-serif;
 }
+.btn {
+    width: 100%;
+    padding: 10px 20px !important;
+}
 .navbar-default{
     border-color: #A3CB38;
 }
@@ -26,7 +30,6 @@ h1,h2,h3,h4,h5,h6{
 }
 .form-control{
     font-size: 16px;
-    padding: 18px 16px;
     border-bottom: 2px solid #ccc;
     border-top: none;
     border-right: none;

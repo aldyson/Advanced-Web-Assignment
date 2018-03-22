@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('email', account.email);
     sessionStorage.setItem('firstName', account.firstName);
     sessionStorage.setItem('lastName', account.lastName);
+    sessionStorage.setItem('contact_number', account.contact_number);
     sessionStorage.setItem('signedIn', 'true');
 
     this.router.navigate(['/listed-items']);

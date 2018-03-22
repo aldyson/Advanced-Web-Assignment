@@ -49,7 +49,8 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBs0YDk89cCTI27610G9O0CGtFx7oMSyx0'
+      apiKey: 'AIzaSyBs0YDk89cCTI27610G9O0CGtFx7oMSyx0',
+      libraries: ["places"]
     })
   ],
   providers: [AuthGuard],

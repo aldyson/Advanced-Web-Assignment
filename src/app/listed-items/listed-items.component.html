@@ -12,38 +12,49 @@
     <form (ngSubmit)="onListItem(f)" #f="ngForm">
 
         <div class="form-group">
-            <label for="item-name">What are you selling?</label>
-            <input class="form-control" type="text" id="item-name" ngModel name="item-name" placeholder="An Item" required>
+            <label for="itemName">What are you selling?</label>
+            <input class="form-control" type="text" id="itemName" ngModel name="itemName" placeholder="An Item" required>
         </div>
         <div class="form-group">
             <label for="description">Write a description about this</label>
             <input class="form-control" type="text" id="description" ngModel name="description" placeholder="Any features or problems with the item" required>
         </div>
         <div class="form-group">
+            <label for="itemType">What type of item is this?</label>
+            <select class="form-control" name="itemType" id="itemType" required>
+                <option value="computer" selected>Computer / Laptop</option>
+                <option value="smartphone">Smartphone</option>
+                <option value="tv">TV</option>
+                <option value="tablet">Tablet</option>
+                <option value="accessory">Accessory</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="price">How much are you selling it for?</label>
             <div class="input-group">
                 <span class="input-group-addon">£</span>
-                <input type="number" value="10" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="price" required ngModel name="price">
+                <input type="number" placeholder="10" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="price" required ngModel name="price">
             </div>
         </div>
         <div class="form-group">
-            <label for="address-line-1">Address Line 1</label>
-            <input class="form-control" type="text" id="address-line-1" ngModel name="address-line-1">
+            <label for="addressLine1">Address Line 1</label>
+            <input class="form-control" type="text" id="addressLine1" ngModel name="addressLine1" required>
         </div>
         <div class="form-group">
-            <label for="address-line-2">Address Line 2</label>
-            <input class="form-control" type="text" id="address-line-2" ngModel name="address-line-2">
+            <label for="addressLine2">Address Line 2</label>
+            <input class="form-control" type="text" id="addressLine2" ngModel name="addressLine2" required>
         </div>
         <div class="form-group">
-            <label for="town-city">Town / City</label>
-            <input class="form-control" type="text" id="town-city" ngModel name="town-city">
+            <label for="townCity">Town / City</label>
+            <input class="form-control" type="text" id="townCity" ngModel name="townCity" required>
         </div>
         <div class="form-group">
-            <label for="post-code">Post Code</label>
-            <input class="form-control" type="text" id="post-code" ngModel name="post-code">
+            <label for="postCode">Post Code</label>
+            <input class="form-control" type="text" id="postCode" ngModel name="postCode" required maxlength="7">
         </div>
 
-        <button class="btn btn-primary" type="submit">List Item</button>
+        <button class="btn btn-primary form__post-item-button" type="submit" [disabled]="!f.valid">List Item</button>
         <button class="btn btn-danger" (click)="listingItem = false;">Cancel</button>
     </form>
 </div>

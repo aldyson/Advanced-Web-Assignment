@@ -15,7 +15,11 @@
       "price": 200,
       "lat": 53.639726,
       "lng": -1.779570,
-      "contact_number": "01484 422288",
+      "addressLine1" : "24 Firth St",
+      "addressLine2" : "Huddersfield",
+      "county" : "West Yorkshire",
+      "postCode" : "HD1 2EH",
+      "contact_number": "01484422288",
       "email_address": "user1@email.com",
       "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
     },
@@ -24,33 +28,45 @@
       "type": "accessory",
       "description": "Screen protector and transparent case for iPhone 7. Brand new and in original packaging.",
       "price": 10,
-      "lat": 53.642754,
-      "lng": -1.778218,
-      "contact_number": "01484 422288",
-      "email_address": "user1@email.com",
-      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
+      "lat": 53.638564,
+      "lng": -1.778094,
+      "addressLine1" : "24 Permain St",
+      "addressLine2" : "Huddersfield",
+      "county" : "West Yorkshire",
+      "postCode" : "HD4 6NU",
+      "contact_number": "01484422288",
+      "email_address": "user2@email.com",
+      "seller_id": "6cql1embuxcd7ur64udpyt1fe6"
     },
     {
       "name": "Black laptop bag",
       "type": "accessory",
       "description": "Laptop carrying case (black) for 15 inch laptops with 2 large pockets and space for other things. Starting to tear on the back but still usable.",
       "price": 5,
-      "lat": 53.648706,
-      "lng": -1.781351,
-      "contact_number": "01484 422288",
-      "email_address": "user1@email.com",
-      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
+      "lat": 53.639330,
+      "lng": -1.795302,
+      "addressLine1" : "19 Springdale Ave",
+      "addressLine2" : "Huddersfield",
+      "county" : "West Yorkshire",
+      "postCode" : "HD1 3NQ",
+      "contact_number": "01484422288",
+      "email_address": "user3@email.com",
+      "seller_id": "2euuis09gz3uw5f7io1r5mfwuk"
     },
     {
       "name": "Samsung Galaxy S6 in midnight blue",
       "type": "smartphone",
       "description": "Galaxy S6 smartphone (no SIM or SD card). Has a small crack at the top corner of the screen but it isn't noticeable and still works well. Selling because I've upgraded to a better phone and don't need this one any more.",
       "price": 90,
-      "lat": 53.645236,
-      "lng": -1.791965,
-      "contact_number": "01484 422288",
-      "email_address": "user1@email.com",
-      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
+      "lat": 53.636474,
+      "lng": -1.783028,
+      "addressLine1" : "14 Greenwood St",
+      "addressLine2" : "Huddersfield",
+      "county" : "West Yorkshire",
+      "postCode" : "HD4 6AL",
+      "contact_number": "01484422288",
+      "email_address": "user4@email.com",
+      "seller_id": "4v8wj3o4jl9i8ccloc5lnni10c"
     }
   ],
   "accounts" : [
@@ -59,28 +75,32 @@
       "email": "user1@email.com",
       "password": "password",
       "firstName": "John",
-      "lastName": "Doe"
+      "lastName": "Doe",
+      "contact_number": "01484422288"
     },
     {
       "id": "6cql1embuxcd7ur64udpyt1fe6",
       "email": "user2@email.com",
       "password": "password",
       "firstName": "John",
-      "lastName": "Smith"
+      "lastName": "Smith",
+      "contact_number": "01484422288"
     },
     {
       "id": "2euuis09gz3uw5f7io1r5mfwuk",
       "email": "user3@email.com",
       "password": "password",
       "firstName": "Will",
-      "lastName": "Barrow"
+      "lastName": "Barrow",
+      "contact_number": "01484422288"
     },
     {
       "id": "4v8wj3o4jl9i8ccloc5lnni10c",
       "email": "user4@email.com",
       "password": "password",
       "firstName": "Claire",
-      "lastName": "Jones"
+      "lastName": "Jones",
+      "contact_number": "01484422288"
     }
   ]
 }

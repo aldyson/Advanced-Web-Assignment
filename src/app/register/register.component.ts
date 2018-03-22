@@ -65,6 +65,7 @@ export class RegisterComponent implements OnInit {
       'lastName': value.lastName,
       'email': value.email,
       'password': value.password,
+      'contact_number': value.contact_number
     });
 
     localStorage.setItem('accounts', JSON.stringify(this.accounts));
