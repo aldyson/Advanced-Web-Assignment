@@ -10,7 +10,7 @@ import { Constants } from "../shared/constants";
 export class SearchComponent implements OnInit {
   lat = parseFloat(localStorage.getItem('lat'));
   lng = parseFloat(localStorage.getItem('lng'));
-  markers = JSON.parse(localStorage.getItem('markers'));
+  markers = [];
   imagePaths = JSON.parse(localStorage.getItem('imagePaths'));
   currentMarker: number;
   productInView;
@@ -33,13 +33,24 @@ export class SearchComponent implements OnInit {
 
   getMarkers() {
     if (localStorage.getItem('markers')) {
-      this.markers = JSON.parse(localStorage.getItem('markers'));
+      let markersData = JSON.parse(localStorage.getItem('markers'));
+      this.filterMarkers(markersData);
     } else {
       this.http.get(this.url + '/assets/data.json')
           .subscribe(response => {
-            this.markers = response.json().markers;
+            let markersData = response.json().markers;
+            this.filterMarkers(markersData);
           });
     }
+  }
+
+  filterMarkers(markers) {
+    for (let i=0; i < markers.length; i++) {
+      if (markers[i].seller_id !== sessionStorage.getItem('id')) {
+        this.markers.push(markers[i]);
+      }
+    }
+    console.log(this.markers);
   }
 
   getImagePaths() {

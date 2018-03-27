@@ -16,6 +16,18 @@ export class ListedItemsComponent implements OnInit {
   items = JSON.parse(localStorage.getItem('markers'));
   userItems = [];
   listingItem = false;
+  newItem = {
+    'name' : '',
+    'type' : 'computer',
+    'description' : '',
+    'price' : '',
+    'lat' : '',
+    'lng' : '',
+    'formatted_address' : '',
+    'seller_id' : '',
+    'contact_number' : '',
+    'email_address' : '',
+  };
   url = Constants.URL;
   geocoder;
 
@@ -41,6 +53,7 @@ export class ListedItemsComponent implements OnInit {
   }
 
   getUserItems(items) {
+    this.userItems = [];
     for (let i=0;i<items.length;i++) {
       if (items[i]['seller_id'] == sessionStorage.getItem('id')) {
         this.userItems.push(items[i]);
@@ -58,23 +71,26 @@ export class ListedItemsComponent implements OnInit {
           'address': value.addressLine1 + ", " + value.postCode
         }, (results, status) => {
           if (status == google.maps.GeocoderStatus.OK) {
-            console.log(results[0]);
-            value.itemLat = results[0].geometry.location.lat();
-            value.itemLng = results[0].geometry.location.lng();
-            value.addressLine1 = results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name;
-            value.addressLine2 = results[0].address_components[2].short_name;
-            value.county = results[0].address_components[3].short_name;
-            value.postCode = results[0].address_components[6].short_name;
-            value.seller_id = sessionStorage.getItem('id');
-            value.contact_number = sessionStorage.getItem('contact_number');
-            value.email_address = sessionStorage.getItem('email');
-            this.postItem(value);
+            this.newItem.name = value.itemName;
+            this.newItem.type = value.itemType;
+            this.newItem.description = value.description;
+            this.newItem.price = value.price;
+            this.newItem.lat = results[0].geometry.location.lat();
+            this.newItem.lng = results[0].geometry.location.lng();
+            this.newItem.formatted_address = results[0].formatted_address;
+            this.newItem.seller_id = sessionStorage.getItem('id');
+            this.newItem.contact_number = sessionStorage.getItem('contact_number');
+            this.newItem.email_address = sessionStorage.getItem('email');
+            this.postItem(this.newItem);
           }
         }, error => console.log(error)
     );
   }
 
-  postItem(value) {
-
+  postItem(newItem) {
+    this.items.push(newItem);
+    localStorage.setItem('markers', JSON.stringify(this.items));
+    this.getUserItems(this.items);
+    this.listingItem = false;
   }
 }

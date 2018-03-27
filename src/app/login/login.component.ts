@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  accounts = JSON.parse(localStorage.getItem('accounts'));
+  accounts;
   errors = {
     'email': '',
     'password': ''
@@ -31,14 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
   getUsers() {
-    if (localStorage.getItem('accounts')) {
-      this.accounts = JSON.parse(localStorage.getItem('accounts'));
-    } else {
-      this.http.get(this.url + '/assets/data.json')
-          .subscribe(response => {
-            this.accounts = response.json().accounts;
-          });
-    }
+    this.http.get(this.url + '/assets/data.json')
+        .subscribe(response => {
+          this.accounts = response.json().accounts;
+        });
   }
 
   onLogin(form: NgForm) {
