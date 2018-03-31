@@ -15,3 +15,51 @@ agm-map{
 .agm-info-window--user-marker-text{
     margin: 0;
 }
+.itemCarousel{
+    background-color: #4f5152;
+    height: 100px;
+    border-top: 5px solid #a3cb38;
+    min-width: 100%;
+    position: absolute;
+    bottom: -41px;
+    z-index: 10;
+    overflow: auto;
+}
+.itemCarousel .container-fluid{
+    padding-right: 0;
+    padding-left: 0;
+}
+.itemCarousel__itemsSection{
+    display: inline-flex;
+    min-height: 95px;
+    max-height: 95px;
+    min-width: 100%;
+}
+.itemCarousel a{
+    color: white;
+    text-decoration: none;
+}
+.itemCarousel__items p{
+    color: #A3CB28;
+    display: inline;
+}
+.itemCarousel__items{
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    min-width: 80%;
+    max-width: 80%;
+    border-right: 1px solid #a3cb38;
+    text-align: center;
+}
+.itemCarousel__items img{
+    margin-left: -10px;
+}
+.itemCarousel__items h4{
+    margin-bottom: 0;
+}
+.itemCarousel__fixedClose{
+    position: fixed;
+    margin-top: -37px;
+    margin-left: 5px;
+}

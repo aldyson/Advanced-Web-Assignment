@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import {Constants} from "../shared/constants";
 
 @Component({
   selector: 'app-favourites',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritesComponent implements OnInit {
 
-  constructor() { }
+  favourites = sessionStorage.getItem('favourites') ? JSON.parse(sessionStorage.getItem('favourites')) : [];
+  url = Constants.URL;
+
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }

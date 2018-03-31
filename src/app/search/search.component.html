@@ -7,26 +7,36 @@
          [clickableIcons]="false"
          [mapTypeId]="'roadmap'"
          (mapClick)="mapClicked($event)">
-    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'./assets/user-marker.png'">
-        <agm-info-window [isOpen]="true">
-            <p class="agm-info-window--user-marker-text">You are here.</p>
-        </agm-info-window>
-    </agm-marker>
-    <agm-marker *ngFor="let m of markers; let i = index"
-                [latitude]="m.lat"
-                [longitude]="m.lng"
-                (markerClick)="markerClicked(m, i)"
-                [iconUrl]="{url: getMarkerUrl(m)}">
-        <agm-info-window [isOpen]="i == currentMarker">
-            <strong>{{m.name}}</strong>
-            <p>{{m.description}}</p>
-            <h4>£{{m.price}}</h4>
-            <a (click)="viewProductDetails(m)" data-toggle="modal" data-target="#productDetails">More Details</a>
-        </agm-info-window>
-    </agm-marker>
+    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'./assets/user-marker.png'"></agm-marker>
+    <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'" [maxZoom]="15">
+        <agm-marker *ngFor="let m of markers; let i = index"
+                    [latitude]="m.lat"
+                    [longitude]="m.lng"
+                    (markerClick)="markerClicked(m, i)"
+                    [iconUrl]="{url: getMarkerUrl(m)}">
+            <!--<agm-info-window [isOpen]="i == currentMarker">-->
+                <!--<strong>{{m.name}}</strong>-->
+                <!--<p>{{m.description}}</p>-->
+                <!--<h4>£{{m.price}}</h4>-->
+                <!--<a (click)="viewProductDetails(m)" data-toggle="modal" data-target="#productDetails">More Details</a>-->
+            <!--</agm-info-window>-->
+        </agm-marker>
+    </agm-marker-cluster>
 </agm-map>
 
-<hr>
+<nav class="navbar navbar-default navbar-fixed-bottom itemCarousel" *ngIf="markerGroup.length > 0">
+    <div class="container-fluid">
+        <div class="itemCarousel__fixedClose">
+            <a (click)="markerGroup = []"><i class="fas fa-window-close fa-2x"></i></a>
+        </div>
+        <div class="itemCarousel__itemsSection">
+            <a class="itemCarousel__items" *ngFor="let item of markerGroup; let i = index" (click)="viewProductDetails(item)" data-toggle="modal" data-target="#productDetails">
+                <p>{{item.name.length < 35 ? item.name : item.name.substr(0,35) + '...'}}</p>
+                <h4>£{{item.price}}</h4>
+            </a>
+        </div>
+    </div>
+</nav>
 
 <div class="modal fade" id="productDetails" role="dialog" *ngIf="productInView">
     <div class="modal-dialog">
@@ -38,7 +48,7 @@
                 <h4 class="modal-title"><strong>£{{productInView.price}} - {{productInView.name}}</strong></h4>
             </div>
             <div class="modal-body">
-                <p>{{productInView.description}}</p>
+                <p><strong>Description</strong><br>{{productInView.description}}</p>
                 <hr>
                 <h4 class="modal__modal-section-header">Contact Details</h4>
                 <a href="{{contactNo}}" class="modal__modal-link">
@@ -49,45 +59,16 @@
                     <i class="fas fa-envelope"></i>&nbsp;
                     <h5 class="modal__modal-header">{{productInView.email_address}}</h5>
                 </a>
+                <p>{{productInView.formatted_address}}</p>
+                <button type="button" class="btn btn-primary" (click)="addToFavourites(productInView)" [disabled]="isAddedToFavourites(productInView)">
+                    <span *ngIf="!isAddedToFavourites(productInView)" >Add to Favourites <i class="far fa-star"></i></span>
+                    <span *ngIf="isAddedToFavourites(productInView)" >Added to Favourites <i class="fas fa-star"></i></span>
+                </button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
 
-    </div>
-</div>
-
-
-<!--TODO: Move this onto another page.-->
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    Add New Marker
-                </div>
-            </div>
-            <div class="panel-body">
-                <form (submit)="addMarker()">
-                    <div class="form-group">
-                        <label for="markerName">Location Name</label>
-                        <input class="form-control" type="text" id="markerName" [(ngModel)]="markerName" name="markerName">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="markerLat">Latitude</label>
-                        <input class="form-control" type="text" id="markerLat" [(ngModel)]="markerLat" name="markerLat">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="markerLng">Longitude</label>
-                        <input class="form-control" type="text" id="markerLng" [(ngModel)]="markerLng" name="markerLng">
-                    </div>
-
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
     </div>
 </div>

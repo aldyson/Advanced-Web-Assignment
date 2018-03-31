@@ -1,2 +1,8 @@
 <h3>Favourites</h3>
 <hr>
+
+<div>
+    <div *ngFor="let item of favourites; let i = index">
+        {{item.name}}
+    </div>
+</div>

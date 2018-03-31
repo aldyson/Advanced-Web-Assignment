@@ -11,11 +11,13 @@ export class SearchComponent implements OnInit {
   lat = parseFloat(localStorage.getItem('lat'));
   lng = parseFloat(localStorage.getItem('lng'));
   markers = [];
+  markerGroup = [];
   imagePaths = JSON.parse(localStorage.getItem('imagePaths'));
   currentMarker: number;
   productInView;
   mailTo;
   contactNo;
+  favourites = sessionStorage.getItem('favourites') ? JSON.parse(sessionStorage.getItem('favourites')) : [];
 
   markerName: string;
   markerLat: string;
@@ -69,7 +71,21 @@ export class SearchComponent implements OnInit {
   }
 
   markerClicked(marker: Marker, index: number) {
+    this.markerGroup = [];
     this.currentMarker = index;
+    sessionStorage.setItem('currentMarker', this.currentMarker.toString());
+
+    for (let i=0; i < this.markers.length; i++) {
+      if (this.markers[i].lat == marker.lat && this.markers[i].lng == marker.lng) {
+        this.markerGroup.push(this.markers[i]);
+      }
+    }
+
+    this.displayMarkers(this.markerGroup);
+  }
+
+  displayMarkers(markerGroup) {
+
   }
 
   mapClicked($event: any) {
@@ -96,6 +112,7 @@ export class SearchComponent implements OnInit {
 
   viewProductDetails(m) {
     this.productInView = m;
+    console.log(m);
     this.mailTo = "mailto:" + m.email_address;
     this.contactNo = "tel:" + m.contact_number;
   }
@@ -115,6 +132,25 @@ export class SearchComponent implements OnInit {
 
   error(err) {
     console.log(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  addToFavourites(product) {
+    this.favourites = sessionStorage.getItem('favourites') ? JSON.parse(sessionStorage.getItem('favourites')) : [];
+    this.favourites.push(product);
+    sessionStorage.setItem('favourites', JSON.stringify(this.favourites));
+  }
+
+  isAddedToFavourites(product) {
+    this.favourites = sessionStorage.getItem('favourites') ? JSON.parse(sessionStorage.getItem('favourites')) : [];
+    if (this.favourites !== null) {
+      for(let i = 0; i < this.favourites.length; i++) {
+        if (this.favourites[i].id == product.id) {
+          return true;
+        }
+      }
+    } else {
+      return false;
+    }
   }
 
 }

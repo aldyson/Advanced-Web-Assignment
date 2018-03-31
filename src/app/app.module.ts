@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
-import { AgmCoreModule } from '@agm/core'
+import { AgmCoreModule } from '@agm/core';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 
 import { AppComponent } from './app.component';
 import { ListedItemsComponent } from './listed-items/listed-items.component';
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBs0YDk89cCTI27610G9O0CGtFx7oMSyx0',
       libraries: ["places"]
-    })
+    }),
+    AgmJsMarkerClustererModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
