@@ -16,6 +16,7 @@ export class ListedItemsComponent implements OnInit {
   items = JSON.parse(localStorage.getItem('markers'));
   userItems = [];
   listingItem = false;
+  listedItem = false;
   newItem = {
     'name' : '',
     'type' : 'computer',
@@ -55,7 +56,7 @@ export class ListedItemsComponent implements OnInit {
   getUserItems(items) {
     this.userItems = [];
     for (let i=0;i<items.length;i++) {
-      if (items[i]['seller_id'] == sessionStorage.getItem('id')) {
+      if (items[i]['seller_id'] == sessionStorage.getItem('id') && items[i]['sold'] !== true) {
         this.userItems.push(items[i]);
       }
     }
@@ -92,5 +93,6 @@ export class ListedItemsComponent implements OnInit {
     localStorage.setItem('markers', JSON.stringify(this.items));
     this.getUserItems(this.items);
     this.listingItem = false;
+    this.listedItem = true;
   }
 }

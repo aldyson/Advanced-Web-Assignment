@@ -1,3 +1,14 @@
 <h3>Sold Items</h3>
 <hr>
-<button (click)="getJSON()">Get JSON</button>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" *ngFor="let item of usersSoldItems; let i = index">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{item.name}} <strong style="float: right;">£{{item.price}}</strong></a>
+            </h4>
+        </div>
+        <div id="{{i}}" class="panel-collapse collapse" [ngClass]="{'in': i == 0}">
+            <div class="panel-body">{{item.description}}</div>
+        </div>
+    </div>
+</div>

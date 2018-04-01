@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
 
   filterMarkers(markers) {
     for (let i=0; i < markers.length; i++) {
-      if (markers[i].seller_id !== sessionStorage.getItem('id')) {
+      if (markers[i].seller_id !== sessionStorage.getItem('id') && markers[i]['sold'] !== true) {
         this.markers.push(markers[i]);
       }
     }

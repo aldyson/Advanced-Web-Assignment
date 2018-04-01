@@ -19,7 +19,8 @@
       "formatted_address" : "24 Firth St, Huddersfield, West Yorkshire, HD1 2EH",
       "contact_number": "01484422288",
       "email_address": "user1@email.com",
-      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf"
+      "seller_id": "64pypckfp0pw5kiqgy7hhjwqqf",
+      "sold": true
     },
     {
       "id": "dn6b549ismkjfzzzo1hp4lk78w",

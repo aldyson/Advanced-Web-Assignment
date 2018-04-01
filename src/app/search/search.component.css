@@ -63,3 +63,6 @@ agm-map{
     margin-top: -37px;
     margin-left: 5px;
 }
+.itemCarousel__close{
+    color: red !important;
+}

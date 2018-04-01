@@ -10,20 +10,35 @@ import {Constants} from "../shared/constants";
   providers: [JsonService]
 })
 export class SoldItemsComponent implements OnInit {
-  data;
-
+  items = JSON.parse(localStorage.getItem('markers'));
+  usersSoldItems = [];
   url = Constants.URL;
 
   constructor(private http: Http) { }
 
   ngOnInit() {
+    this.getItems();
   }
 
-  getJSON() {
-    this.http.get(this.url + '/assets/data.json')
-        .subscribe(response => {
-          this.data = response.json().imagePaths;
-        });
+  getItems() {
+    if (localStorage.getItem('markers')) {
+      this.items = JSON.parse(localStorage.getItem('markers'));
+    } else {
+      this.http.get(this.url + '/assets/data.json')
+          .subscribe(response => {
+            this.items = response.json().markers;
+          });
+    }
+    this.getUserItems(this.items);
+  }
+
+  getUserItems(items) {
+    this.usersSoldItems = [];
+    for (let i=0;i<items.length;i++) {
+      if (items[i]['seller_id'] == sessionStorage.getItem('id') && items[i]['sold'] == true) {
+        this.usersSoldItems.push(items[i]);
+      }
+    }
   }
 
 }

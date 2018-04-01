@@ -27,7 +27,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom itemCarousel" *ngIf="markerGroup.length > 0">
     <div class="container-fluid">
         <div class="itemCarousel__fixedClose">
-            <a (click)="markerGroup = []"><i class="fas fa-window-close fa-2x"></i></a>
+            <a (click)="markerGroup = []" class="itemCarousel__close"><i class="fas fa-window-close fa-2x"></i></a>
         </div>
         <div class="itemCarousel__itemsSection">
             <a class="itemCarousel__items" *ngFor="let item of markerGroup; let i = index" (click)="viewProductDetails(item)" data-toggle="modal" data-target="#productDetails">
