@@ -17,4 +17,9 @@ export class FavouritesComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeFromFavourites(index) {
+    this.favourites.splice(index, 1);
+    sessionStorage.setItem('favourites', JSON.stringify(this.favourites));
+  }
+
 }

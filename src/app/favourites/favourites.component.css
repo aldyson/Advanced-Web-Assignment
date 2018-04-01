@@ -1,0 +1,25 @@
+.items{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.items__item{
+    border: none;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.item__item-name{
+    font-weight: bold;
+}
+.item__item-price{
+    text-align: right;
+}
+.item__item-email{
+    margin-bottom: 0;
+}
+.item__item-contact-details-line{
+    border-top: 2px solid #A3CB28;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}

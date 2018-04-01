@@ -1,8 +1,21 @@
 <h3>Favourites</h3>
 <hr>
-
-<div>
-    <div *ngFor="let item of favourites; let i = index">
-        {{item.name}}
+<div class="items">
+    <div *ngFor="let item of favourites; let i = index" class="items__item">
+        <div class="row">
+            <div class="col-xs-9">
+                <h4 class="item__item-name">{{item.name}}</h4>
+            </div>
+            <div class="col-xs-3">
+                <h4 class="item__item-price">£{{item.price}}</h4>
+            </div>
+        </div>
+        <p>{{item.description}}</p>
+        <h4>Contact Details</h4>
+        <hr class="item__item-contact-details-line">
+        <p>{{item.formatted_address}}</p>
+        <p class="item__item-email">{{item.email_address}}</p>
+        <p>{{item.contact_number}}</p>
+        <button class="btn btn-danger" (click)="removeFromFavourites(i)">Remove from Favourites</button>
     </div>
 </div>

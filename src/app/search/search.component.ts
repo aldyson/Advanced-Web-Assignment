@@ -52,7 +52,6 @@ export class SearchComponent implements OnInit {
         this.markers.push(markers[i]);
       }
     }
-    console.log(this.markers);
   }
 
   getImagePaths() {
