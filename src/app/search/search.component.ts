@@ -8,6 +8,7 @@ import { Constants } from "../shared/constants";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  keywordSearch;
   lat = parseFloat(localStorage.getItem('lat'));
   lng = parseFloat(localStorage.getItem('lng'));
   markers = [];

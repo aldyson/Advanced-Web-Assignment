@@ -21,7 +21,7 @@ agm-map{
     border-top: 5px solid #a3cb38;
     min-width: 100%;
     position: absolute;
-    bottom: -41px;
+    bottom: -5px;
     z-index: 10;
     overflow: auto;
 }
@@ -65,4 +65,10 @@ agm-map{
 }
 .itemCarousel__close{
     color: red !important;
+}
+.map-filters{
+    margin-bottom: 5px;
+}
+.map-filters__map-filter{
+    font-size: 12px;
 }

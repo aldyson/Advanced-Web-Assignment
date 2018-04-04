@@ -1,3 +1,10 @@
+<!--TODO: Create a pipe or filter for each of the following controls-->
+<div class="row map-filters">
+    <div class="col-xs-12">
+        <input type="text" class="form-control map-filters__map-filter" placeholder="Enter Keyword" [(ngModel)]="keywordSearch">
+    </div>
+</div>
+
 <agm-map [latitude]="lat"
          [longitude]="lng"
          [zoom]="12"
@@ -9,7 +16,7 @@
          (mapClick)="mapClicked($event)">
     <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'./assets/user-marker.png'"></agm-marker>
     <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'" [maxZoom]="15">
-        <agm-marker *ngFor="let m of markers; let i = index"
+        <agm-marker *ngFor="let m of markers| filter: keywordSearch ; let i = index"
                     [latitude]="m.lat"
                     [longitude]="m.lng"
                     (markerClick)="markerClicked(m, i)"

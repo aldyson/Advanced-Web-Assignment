@@ -17,7 +17,8 @@ import { SoldItemsComponent } from './sold-items/sold-items.component';
 import { SearchComponent } from './search/search.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-import {AuthGuard} from "./auth/auth-guard.service";
+import { FilterPipe } from "./shared/filter.pipe";
+import { AuthGuard } from "./auth/auth-guard.service";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     SoldItemsComponent,
     SearchComponent,
     AlertsComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
