@@ -47,8 +47,8 @@ agm-map{
     color: white;
     display: inline-block;
     padding: 10px;
-    min-width: 80%;
-    max-width: 80%;
+    min-width: 50vh;
+    max-width: 50vh;
     border-right: 1px solid #a3cb38;
     text-align: center;
 }

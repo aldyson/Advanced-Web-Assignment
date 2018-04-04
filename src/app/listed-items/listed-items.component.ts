@@ -16,7 +16,6 @@ export class ListedItemsComponent implements OnInit {
   items = JSON.parse(localStorage.getItem('markers'));
   userItems = [];
   listingItem = false;
-  listedItem = false;
   newItem = {
     'name' : '',
     'type' : 'computer',
@@ -60,9 +59,26 @@ export class ListedItemsComponent implements OnInit {
         this.userItems.push(items[i]);
       }
     }
+    this.listingItem = false;
+  }
+
+  startListingItem() {
+    this.listingItem = true;
   }
 
   onListItem (form: NgForm) {
+    this.newItem = {
+      'name' : '',
+      'type' : 'computer',
+      'description' : '',
+      'price' : '',
+      'lat' : '',
+      'lng' : '',
+      'formatted_address' : '',
+      'seller_id' : '',
+      'contact_number' : '',
+      'email_address' : '',
+    };
     const value = form.value;
     this.getLatLng(value);
   }
@@ -92,7 +108,5 @@ export class ListedItemsComponent implements OnInit {
     this.items.push(newItem);
     localStorage.setItem('markers', JSON.stringify(this.items));
     this.getUserItems(this.items);
-    this.listingItem = false;
-    this.listedItem = true;
   }
 }

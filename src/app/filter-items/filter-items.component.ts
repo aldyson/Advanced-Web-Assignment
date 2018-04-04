@@ -39,7 +39,7 @@ export class FilterItemsComponent implements OnInit {
     sessionStorage.setItem('itemFilter', this.itemFilter);
     this.filteredItems = [];
     for (let i=0; i < markers.length; i++) {
-      if (markers[i].type == this.itemFilter && markers[i]['sold'] !== true) {
+      if (markers[i].type == this.itemFilter && markers[i]['sold'] !== true && markers[i]['seller_id'] !== sessionStorage.getItem('id')) {
         this.filteredItems.push(markers[i]);
       }
     }

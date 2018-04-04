@@ -2,9 +2,9 @@
   <!--{{item.name}} costs {{item.price}}-->
 <!--</p>-->
 <h3>Items Currently Listed</h3>
-<div *ngIf="!listingItem || listedItem">
+<div *ngIf="!listingItem">
     <hr>
-    <button class="btn btn-primary" (click)="listingItem = true">List an Item&nbsp;<i class="fas fa-plus"></i></button>
+    <button class="btn btn-primary" (click)="startListingItem()">List an Item&nbsp;<i class="fas fa-plus"></i></button>
     <hr>
 </div>
 <div *ngIf="listingItem">
