@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { SoldItemsComponent } from './sold-items/sold-items.component';
 import { SearchComponent } from './search/search.component';
-import { AlertsComponent } from './alerts/alerts.component';
+import { FilterItemsComponent } from './filter-items/filter-items.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { FilterPipe } from "./shared/filter.pipe";
 import { AuthGuard } from "./auth/auth-guard.service";
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'listed-items', component: ListedItemsComponent, canActivate: [AuthGuard] },
   { path: 'sold-items', component: SoldItemsComponent, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
-  { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard] },
+  { path: 'filter', component: FilterItemsComponent, canActivate: [AuthGuard] },
   { path: 'favourites', component: FavouritesComponent, canActivate: [AuthGuard] },
 ];
 
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     SoldItemsComponent,
     SearchComponent,
-    AlertsComponent,
+    FilterItemsComponent,
     FavouritesComponent,
     FilterPipe
   ],

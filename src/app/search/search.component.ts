@@ -98,21 +98,8 @@ export class SearchComponent implements OnInit {
     // this.markers.push(newMarker);
   }
 
-  addMarker() {
-    console.log("Adding Marker");
-
-    let newMarker = {
-      name: this.markerName,
-      lat: this.markerLat,
-      lng: this.markerLng
-    };
-
-    this.markers.push(newMarker);
-  }
-
   viewProductDetails(m) {
     this.productInView = m;
-    console.log(m);
     this.mailTo = "mailto:" + m.email_address;
     this.contactNo = "tel:" + m.contact_number;
   }

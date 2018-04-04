@@ -1,0 +1,39 @@
+<h3>Filter Items</h3>
+<hr>
+<div class="row filterDetails">
+    <div class="col-xs-4">
+        <h5>Show me</h5>
+    </div>
+    <div class="col-xs-8">
+        <select name="item-type" id="item-type" class="form-control" [(ngModel)]="itemFilter" (change)="filterMarkers(markersData)">
+            <option value="computer">Computers / Laptops</option>
+            <option value="smartphone">Smartphones</option>
+            <option value="tablet">Tablets</option>
+            <option value="tv">TVs</option>
+            <option value="accessory">Accessories</option>
+            <option value="other">Other Items</option>
+        </select>
+    </div>
+</div>
+<div class="items">
+    <div *ngFor="let item of filteredItems; let i = index" class="items__item">
+        <div class="row">
+            <div class="col-xs-9">
+                <h4 class="item__item-name">{{item.name}}</h4>
+            </div>
+            <div class="col-xs-3">
+                <h4 class="item__item-price">£{{item.price}}</h4>
+            </div>
+        </div>
+        <p>{{item.description}}</p>
+        <h4>Contact Details</h4>
+        <hr class="item__item-contact-details-line">
+        <p>{{item.formatted_address}}</p>
+        <p class="item__item-email">{{item.email_address}}</p>
+        <p>{{item.contact_number}}</p>
+        <button class="btn btn-primary" (click)="addToFavourites(item)" [disabled]="isAddedToFavourites(item)">
+            <span *ngIf="!isAddedToFavourites(item)">Add to Favourites&nbsp;<i class="far fa-star"></i></span>
+            <span *ngIf="isAddedToFavourites(item)">Added to Favourites&nbsp;<i class="fas fa-star"></i></span>
+        </button>
+    </div>
+</div>
