@@ -52,7 +52,7 @@
         </div>
 
         <button class="btn btn-primary form__post-item-button" type="submit" [disabled]="!f.valid">List Item</button>
-        <button class="btn btn-danger" (click)="listingItem = false;">Cancel</button>
+        <button class="btn btn-danger" id="cancel-btn" (click)="listingItem = false;">Cancel</button>
     </form>
 </div>
 
@@ -60,11 +60,13 @@
     <div class="panel panel-default" *ngFor="let item of userItems; let i = index">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{item.name}}</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#{{i}}">{{item.name}} <strong style="float: right;">£{{item.price}}</strong></a>
             </h4>
         </div>
         <div id="{{i}}" class="panel-collapse collapse" [ngClass]="{'in': i == 0}">
-            <div class="panel-body">{{item.name}} costs {{item.price}}</div>
+            <div class="panel-body">
+                <p>{{item.description}}</p>
+            </div>
         </div>
     </div>
 </div>

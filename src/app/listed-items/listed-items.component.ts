@@ -59,7 +59,10 @@ export class ListedItemsComponent implements OnInit {
         this.userItems.push(items[i]);
       }
     }
-    this.listingItem = false;
+    if (this.listingItem == true) {
+      this.listingItem = false;
+      document.getElementById("cancel-btn").click();
+    }
   }
 
   startListingItem() {
